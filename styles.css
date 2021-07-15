@@ -1,5 +1,5 @@
-html { 
-    background: url(images/bgimage.jpg) no-repeat center center fixed; 
+html {
+    background: url(images/bgimage.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,16 +7,16 @@ html {
     box-sizing: border-box;
   }
 *{
-   
+
         margin: 0px;
         padding: 0px;
         border: none;
         box-sizing: border-box;
         color: #FFF;
-    
+
 }
 body{
-    padding: 2vh 10%;
+    padding: 1.5vh 18%;
 }
 #main{
     border: 1px solid red;
@@ -40,7 +40,7 @@ body{
       float: left;
       width: 80%;
       height: 100%;
-    
+
   }
   .tile{      /** individual tile */
     float:left;
@@ -50,10 +50,24 @@ body{
       padding-bottom: 20%;        /* as height:20% will make tile's height = 20% height of parent. i.e. will not be a square*/
       border: 1px solid black;  /*    padding-bottom 20% is 20 perc. of parent width. so it will make it a square */
       display: table;
-     
+      position: relative;
+
   }
-  
-  
+
+.content{
+  padding: 8%;
+  background-color: gray;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+.img-cover{
+  background-color: red;
+padding: 2%;
+width: 100%;
+height: 100%;
+}
   .buttonpanel{   /** right side area for buttons */
     display: table;
       float: right;
