@@ -1,0 +1,8 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<title>start-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #fafafa } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="shp0" d="M256 504C119 504 8 393 8 256C8 119 119 8 256 8C393 8 504 119 504 256C504 393 393 504 256 504ZM256 456C366.5 456 456 366.5 456 256C456 145.5 366.5 56 256 56C145.5 56 56 145.5 56 256C56 366.5 145.5 456 256 456ZM371.7 280L195.7 381C179.8 389.8 160 378.4 160 360L160 152C160 133.5 179.9 122.2 195.7 131L371.7 238C388.1 247.2 388.1 270.9 371.7 280Z" />
+</svg>

@@ -1,77 +1,115 @@
 html {
-    background: url(images/bgimage.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    box-sizing: border-box;
-  }
-*{
-
-        margin: 0px;
-        padding: 0px;
-        border: none;
-        box-sizing: border-box;
-        color: #FFF;
-
+  background: url(images/bgimage.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-sizing: border-box;
 }
-body{
-    padding: 1.5vh 18%;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  box-sizing: border-box;
+  color: #FFF;
 }
-#main{
-    border: 1px solid red;
 
+body {
+  padding: 1.5vh 18%;
 }
-  h1{
-      font-family: Aladin, sans-serif;
-      font-size: 3rem;
-      text-align: center;
-  }
-     /** NOTE: 'height=xyz%' works only when parent has explicit height. */
-  .master{
-      width: 100%;
-      height:100%;
-      padding: 2%;
-      background-color:cadetblue;
-      display: table;                   /* display: table makes parent div resize a/c to child element sizes. Plus, allows us to use height%  */
-  }                                     /*                 even when parent is not explicit height */
-  .gametiles{  /** container containing all tiles*/
-      background-color: chocolate;
-      float: left;
-      width: 80%;
-      height: 100%;
 
-  }
-  .tile{      /** individual tile */
-    float:left;
-      background-color: darkkhaki;
-      width: 20%;
-      /* height: 20%; */
-      padding-bottom: 20%;        /* as height:20% will make tile's height = 20% height of parent. i.e. will not be a square*/
-      border: 1px solid black;  /*    padding-bottom 20% is 20 perc. of parent width. so it will make it a square */
-      display: table;
-      position: relative;
 
-  }
+h1 {
+  font-family: Aladin, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
 
-.content{
+/** NOTE: 'height=xyz%' works only when parent has explicit height. */
+.master {
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  background-color: cadetblue;
+  display: table;
+  /* display: table makes parent div resize a/c to child element sizes. Plus, allows us to use height%  */
+}
+
+/*                 even when parent is not explicit height */
+.gametiles {
+  /** container containing all tiles*/
+  background-color: chocolate;
+  float: left;
+  width: 80%;
+  height: 100%;
+}
+
+.tile {
+  /** individual tile */
+  float: left;
+  background-color: darkkhaki;
+  width: 20%;
+  /* height: 20%; */
+  padding-bottom: 20%;
+  /* as height:20% will make tile's height = 20% height of parent. i.e. will not be a square*/
+  border: 1px solid black;
+  /*    padding-bottom 20% is 20 perc. of parent width. so it will make it a square */
+  display: table;
+  position: relative;
+}
+
+.content {
   padding: 8%;
   background-color: gray;
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.img-cover {
+  background-color: red;
+  padding: 2%;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonpanel {
+  /** right side area for buttons */
+  display: table;
+  float: right;
+  background-color: rgb(35, 190, 15);
+  width: 20%;
+  height: 100%;
+}
+
+/******           BUTTON SIDE PANEL                *********/
+.button {
+  position: relative;
+  height: 4vw;
+  padding-left: 0.5rem;
+  margin-bottom: 2vw;
+  margin-left: 1vw;
+  border-radius: 2px;
+  background-color: brown;
+  line-height: 4vw;
+  text-align: left;
+  font-size: 1.5rem;
+}
+.ico{
+  position: absolute;
+  right: 0;             /* to center align icon vertically*/
+  top: 50%;
+  transform: translate(-0.5rem,-50%);
+}
+.reveal, .match-it{
+  background: linear-gradient(0deg, rgba(250,53,235,1) 0%, rgba(255,122,238,1) 49%, rgba(252,69,242,1) 100%);;
+}
+.start{
+  background: linear-gradient(0deg, rgba(250,52,12,1) 0%, rgba(254,114,114,1) 49%, rgba(253,22,1,1) 100%);
+}
+.reset{
+  background: rgb(3,218,24);
+  background: linear-gradient(0deg, rgba(3,218,24,1) 0%, rgba(80,253,129,1) 49%, rgba(4,211,31,1) 100%);
 
 }
-.img-cover{
-  background-color: red;
-padding: 2%;
-width: 100%;
-height: 100%;
-}
-  .buttonpanel{   /** right side area for buttons */
-    display: table;
-      float: right;
-      background-color: rgb(35, 190, 15);
-      width: 20%;
-      height: 100%;
-  }
