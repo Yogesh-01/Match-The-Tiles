@@ -1,3 +1,2 @@
-*.jpg
-
-# all image files would be ignored
+*.vscode
+*.cph
