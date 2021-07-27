@@ -113,6 +113,9 @@ h1 {
   -webkit-text-stroke-width: 0.25px;
   -webkit-text-stroke-color: black;
 }
+#time{
+  color: #ff5f82;
+}
 .ico{
   width:1.8vw;
   position: absolute;
@@ -166,4 +169,9 @@ h1 {
 
  .deleted{
    display: none;
+ }
+
+
+ #reveal{
+   margin-top: 6vw; /* brute force margin to fix alignment */
  }

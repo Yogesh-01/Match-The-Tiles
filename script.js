@@ -26,7 +26,7 @@ function shuffle(array) {
 
 function initialiseImages() {
   arr = shuffle(arr); // shuffling array of images 
-  console.log(arr);
+  //console.log(arr);
   let imgarr = document.getElementsByClassName("img"); // adding the shuffled images to tiles
   for (let i = 0; i < arr.length; i++) {
     let cssTxt = "url(images/" + arr[i] + ".jpg)";
@@ -39,7 +39,7 @@ initialiseImages();
 
 
 let actvList = document.getElementsByClassName('img-cover'); // array of all tiles whose child has background-image
-console.log(actvList);
+//console.log(actvList);
 
 
 
@@ -184,24 +184,24 @@ function startt() { // starting the game
       if (actvItm.length < 2 && this != actvItm[actvItm.length - 1]) { // pushing clicked image to array, second condition prevents same image from pushed twice
         this.classList.add('flipped');
         actvItm.push(this);
-        console.log(this);
+        //console.log(this);
       }
 
 
       if (actvItm.length == 1) oneselected = true;  // to help match-it function, as match-it works only when 1 tile flipped
       if (actvItm.length == 2) { // checking if images match when 2 tiles are flipped
         let img1 = actvItm[0].childNodes[1];  // got inner div of tile, which has background image
-        console.log(img1);
+        //console.log(img1);
         let img2 = actvItm[1].childNodes[1];
-        console.log(img2);
+        //console.log(img2);
 
         style1 = img1.currentStyle || window.getComputedStyle(img1, false), // extracting url of background image 
           url1 = style1.backgroundImage.slice(4, -1).replace(/"/g, "");
-        console.log(url1);
+        //console.log(url1);
 
         style2 = img2.currentStyle || window.getComputedStyle(img2, false), // extracting url of background image 
           url2 = style2.backgroundImage.slice(4, -1).replace(/"/g, "");
-        console.log(url2);
+        //console.log(url2);
         oneselected = false;
 
         if (url1 == url2) { // when images match
@@ -237,7 +237,7 @@ function startt() { // starting the game
 
 function ifAllDeleted(){  // function to check whether all tiles are deleted, and hence game Won
   let deletedTiles = document.getElementsByClassName('deleted');
-  console.log(deletedTiles.length);
+  //console.log(deletedTiles.length);
   if(deletedTiles.length==20){
     let message=('You win! Your score is '+document.getElementById('score').innerText);
     window.alert(message);
@@ -255,5 +255,5 @@ function reset() {
 
 document.getElementById('resetbtn').addEventListener('click', function () {
   reset();
-  console.log('reset to default');
+  //console.log('reset to default');
 });
