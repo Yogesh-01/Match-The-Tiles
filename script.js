@@ -205,13 +205,14 @@ function startt() { // starting the game
         oneselected = false;
 
         if (url1 == url2) { // when images match
-          setTimeout(function () {
+          setTimeout(function(){
             console.log("images matched");
             actvItm[0].classList.add('deleted');   // deleting the matched item from screen
             actvItm[1].classList.add('deleted');
             actvItm = [];
             score = score + 10 + Number(document.getElementById('time').innerText); // score is 10 + time
             document.getElementById('score').innerText = score;
+            ifAllDeleted();  // checking whether all tiles are deleted
           }, 400); // wait for 0.4 sec, then delete the matched images
 
         } 
@@ -224,16 +225,25 @@ function startt() { // starting the game
             //console.log('wrong answer');
           }, 500);    // wait 0.5 seconds, and unflip both images
         }
-
+        
       }
-
+      
 
     });
   }// adding click events to all tiles over
 
 
-
 }// function start game over
+
+function ifAllDeleted(){  // function to check whether all tiles are deleted, and hence game Won
+  let deletedTiles = document.getElementsByClassName('deleted');
+  console.log(deletedTiles.length);
+  if(deletedTiles.length==20){
+    let message=('You win! Your score is '+document.getElementById('score').innerText);
+    window.alert(message);
+    alertShown=true;
+  }
+}
 
 
 
