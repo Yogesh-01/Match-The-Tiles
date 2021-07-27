@@ -103,6 +103,7 @@ h1 {
 }
 .button:hover{
   box-shadow:none;
+  cursor: pointer;
 }
 .text{
   box-shadow: none;
@@ -119,7 +120,7 @@ h1 {
   top: 50%;
   transform: translate(-0.5rem,-50%);
 }
-.reveal, .match-it{
+#reveal, .match-it{
   background: linear-gradient(0deg, rgba(250,53,235,1) 0%, rgba(255,122,238,1) 49%, rgba(252,69,242,1) 100%);;
 }
 .reset{

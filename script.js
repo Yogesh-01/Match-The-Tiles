@@ -39,9 +39,8 @@ console.log(actvList);
 
 
 
-
-                             /**** starting timer  */
-
+                                  /******   START  BUTTON   and TIMER ******/
+                                  let alertShown=false; // to ensure alert is shown only once
   function startTimer(duration, display) {
     var timer = duration,/***minutes, */ seconds;
     setInterval(function () {
@@ -52,34 +51,119 @@ console.log(actvList);
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = seconds;
-
+       
         if (--timer < 0) {
             timer = 0;
+            
+              let message = "Time Up! Your Score is "+ score;
+             if(alertShown==false){
+               window.alert(message);
+               alertShown=true;
+             }
+            
+             
         }
     }, 1000);
 }
 var isStarted =false;
 
-
 document.getElementById('startbtn').addEventListener('click', function(){
   document.getElementById('startbtn').classList.add('deactivated');
-  if(!isStarted){
-    var timeLim = 10,
+  
+  if(isStarted==false){
+    var timeLim = 10;                   // time limit is 100 seconds
     display = document.querySelector('#time');
     startTimer(timeLim, display);
   }
   isStarted=true;
+  startt();    // started the game
 });            //finished timer function 
+
+
+                                         /********* MATCH IT FUNCTION ********/
+
+function matchIt(parent1){    // not optimising and looping whole array cause me lazy
+  let im1 = parent1.childNodes[1];
+  console.log('parent1 is ');
+  console.log(parent1);
+  style1 = im1.currentStyle || window.getComputedStyle(im1, false),   // extracting url of background image of passed node
+  url1 = style1.backgroundImage.slice(4, -1).replace(/"/g, "");
+  console.log(url1);
+
+  if(matchitavail==true)for(let i=0;i<20;i++){                // looping to find matching image 
+    let im2 = actvList[i].childNodes[1];
+    console.log(im2);
+    style2 = im2.currentStyle || window.getComputedStyle(im2, false),   // extracting url of background image 
+    url2 = style2.backgroundImage.slice(4, -1).replace(/"/g, "");
+    console.log(url2);
+   
+    if(url1==url2){
+      parent1.classList.add('deleted');
+      actvList[i].classList.add('deleted');
+      
+    }
+    
+  }
+  actvItm=[];
+  score= score+30;  // +30 score when match-it powerup is used
+  document.getElementById('score').innerText=score;
+
+ matchitavail=false;
+}
+
+
+let matchitpsd=false;
+let matchitavail=true;
+                 // adding click event on match it button and calling function
+document.getElementById('matchbtn').addEventListener('click',function(){
+    matchitpsd=true;
+    if(oneselected)this.classList.add('deactivated');
+    console.log('matchit is pressed');
+    if(actvItm.length==1 && matchitpsd==true){  // when match-it is pressed call the function
+      if(matchitavail==true){
+        matchIt(actvItm[0]);
+      }
+      console.log('match it processing');
+      console.log(matchitpsd);
+   }
+});
+
+                                    /*********   REVEAL FUNCTION   **********/
+function reveal(){
+
+for(let i=0;i<20;i++){
+  actvList[i].classList.add('flipped');
+}
+setTimeout(function(){
+  for(let i=0;i<20;i++){
+      actvList[i].classList.remove('flipped');
+  }
+},1200);
+}
+document.getElementById('reveal').addEventListener('click',function(){  // adding click event in reveal button
+    if(this.classList.contains('deactivated')==false && isStarted==true){
+    this.classList.add('deactivated');
+    reveal();
+    }
+});
 
 
 
 
 let actvItm=[];   // will store two divs which contains cover and nests a child div which has image
 let score=0;
+let oneselected=false;
 
 
-                         /******* Main LOGIC ******************/
 
+
+
+
+
+                                             /******* MAIN LOGIC ******************/
+
+
+function startt(){   // starting the game
 let content = document.getElementsByClassName("img-cover");
 for(let i=0;i<20;i++){  // adding click event to all tiles
 content[i].addEventListener('click', function(){
@@ -89,14 +173,16 @@ content[i].addEventListener('click', function(){
        actvItm.push(this);
        console.log(this);
       }
-      // else{
-      //    for(let i=0;i<actvItm.length;i++){
-      //      actvItm[i].classList.remove('flipped');
-      //    }  
-      //    actvItm=[];
-      //    console.log(actvItm.length);
-      // }
-     
+      
+
+    // if(actvItm.length==1 && matchitpsd==true){  // when match-it is pressed
+    //    if(matchitavail==true){
+    //      matchIt(actvItm[0]);
+    //    }
+    //    console.log('match it processing');
+    //    console.log(matchitpsd);
+    // }
+    if(actvItm.length==1)oneselected=true;
     if(actvItm.length==2){                  // checking if images match
         let img1 = actvItm[0].childNodes[1];
         console.log(img1);
@@ -110,7 +196,7 @@ content[i].addEventListener('click', function(){
         style2 = img2.currentStyle || window.getComputedStyle(img2, false),   // extracting url of background image 
         url2 = style2.backgroundImage.slice(4, -1).replace(/"/g, "");
         console.log(url2);
-  
+       oneselected=false;
     
         if(url1== url2){                           // when images match
           setTimeout(function(){
@@ -118,12 +204,12 @@ content[i].addEventListener('click', function(){
             actvItm[0].classList.add('deleted');
             actvItm[1].classList.add('deleted');
             actvItm=[];
-            score= score+10;
+            score= score+10+Number(document.getElementById('time').innerText); // score is 10 + time
             document.getElementById('score').innerText=score;
         },500);  // wait for 0.5 sec, then delete the matched images
         
          }
-         else if(url1= url2){                                     // when images don't match
+         else if(url1!=url2){                                     // when images don't match
           setTimeout(function(){
           for(let i=0;i<actvItm.length;i++){
                  actvItm[i].classList.remove('flipped');
@@ -137,6 +223,10 @@ content[i].addEventListener('click', function(){
   
      
 });
+}  
+   
+   
+
 }
 // window.onload = function () {
 //     var timeLim = 100,
