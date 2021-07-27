@@ -57,7 +57,7 @@ h1 {
   /* height: 20%; */
   padding-bottom: 20%;
   /* as height:20% will make tile's height = 20% height of parent. i.e. will not be a square*/
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /*    padding-bottom 20% is 20 perc. of parent width. so it will make it a square */
   display: table;
   position: relative;
@@ -72,7 +72,7 @@ h1 {
 }
 
 .img-cover {
-  background-color: red;
+  /* background-color: red; */
   padding: 2%;
   width: 100%;
   height: 100%;
@@ -131,3 +131,38 @@ h1 {
 
 }
 
+
+
+                                         /**** testing in css before js *****/
+.img-cover{
+  position: relative;
+  border-radius: 5px;
+  background-image: url("images/cover2.jpg" );
+  background-size: cover;
+  /* background: transparent; */
+  transform-style: preserve-3d;
+ }
+ .img{
+   border-radius: 5px;
+  padding: 2%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transform: translateZ(-10px)
+ }
+
+ .flipped{
+   background: transparent;
+
+ }
+
+ .deactivated{
+ 
+  background: rgb(153, 153, 153) !important;
+ 
+  box-shadow: none;
+ }
+
+ .deleted{
+   display: none;
+ }
